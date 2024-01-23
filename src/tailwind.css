@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.link{
+    @apply text-white block p-5 font-bold hover:text-gray-700
+}
+import {} form "."
+.bg-wave-repeat {
+    background-image: url(./assets/images/wave-white.png);
+    background-repeat: repeat-x; /* Repetir solo en el eje X */
+    height: 6px; /* Altura de la imagen */
+    position: relative;
+    top: -2px; /* Ajuste de posición */
+    /* Otras propiedades según lo necesites */
+}
