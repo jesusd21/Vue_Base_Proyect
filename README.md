@@ -19,10 +19,20 @@ npm run dev
 ```sh
 npm run build
 ```
-![inicio](https://github.com/jesusd21/Vue_Base_Proyect/assets/83063147/4f7bb321-acc7-4a2f-b6b7-de0a377d57e9)
+![responsive](https://github.com/jesusd21/Vue_Base_Proyect/assets/83063147/7ee025e8-2a06-4b06-b2b1-fe073224a753)
 
 
-![MainPage](https://github.com/jesusd21/Vue_Base_Proyect/assets/83063147/c02c84d8-a2f1-4723-ac44-795b743282a8)
 
 
-![responsive](https://github.com/jesusd21/Vue_Base_Proyect/assets/83063147/31af2d37-c0ec-445c-b6a0-a3ccefaefa9f)
+
+![MainPage](https://github.com/jesusd21/Vue_Base_Proyect/assets/83063147/35bef802-e5e8-4915-a6ae-b0f86bfaf5ef)
+
+
+
+
+
+
+![inicio (1)](https://github.com/jesusd21/Vue_Base_Proyect/assets/83063147/c0ecc1b6-edce-43ba-a822-f6bb5d6e782d)
+
+
+
