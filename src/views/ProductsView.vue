@@ -6,12 +6,16 @@ import noImag from '@/assets/images/noImag.jpg'
 
 <template>
     <div class="block bottom-0 left-0  w-full p-36 bg-color ">
-        <div class="search-box">
-            <input type="text" placeholder="Search...">
-            <div class="search"></div>
-        </div>
+
         <div class="mt-[-4rem]">
-            <div class="flex justify-center items-center h-screen">
+            <div class="flex justify-center items-center mb-52 ">
+                <div class="search-box ">
+                    <input type="text" placeholder="Search...">
+                    <div class="search"></div>
+                </div>
+            </div>
+
+            <div class="flex justify-center items-center ">
                 <div class="w-1/2">
                     <img :src="noImag" alt="iconoImg" loading="lazy" class="img_perfil" />
                 </div>
@@ -51,18 +55,6 @@ import noImag from '@/assets/images/noImag.jpg'
 
             <div class="flex justify-center items-center  ">
                 <div class="w-1/2 ml-60 flex">
-                    <!-- <div class="flex justify-center items-center h-screen">
-                        <div class="w-1/2 ml-50 flex">
-                            <div class="flex justify-center items-center h-screen space-x-1">
-                                <div class="rounded-[50%] mt-[1rem] ml-[-3rem]" style="width: 5rem; height: 5rem; background-color: #63A32B;"/>
-                                <div class="rounded-[50%] mt-[1rem] ml-[-3rem]" style="width: 5rem; height: 5rem; background-color: #63A32B;"/>
-                                <div class="rounded-[50%] mt-[1rem] ml-[-3rem]" style="width: 5rem; height: 5rem; background-color: #63A32B;"/>
-                                <div class="rounded-[50%] mt-[1rem] ml-[-3rem]" style="width: 5rem; height: 5rem; background-color: #63A32B;"/>
-                                <div class="rounded-[50%] mt-[1rem] ml-[-3rem]" style="width: 5rem; height: 5rem; background-color: #63A32B;"/>
-                            </div> 
-                            
-                        </div>
-                    </div> -->
                     <div class="flex justify-center items-center h-screen">
                         <div class="grid grid-cols-5 gap-4">
                             <!-- Fila 1 -->
