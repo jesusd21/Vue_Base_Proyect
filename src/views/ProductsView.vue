@@ -89,6 +89,20 @@ import noImag from '@/assets/images/noImag.jpg'
                 </p>
 
             </div>
+
+            <div class="flex-nowrap  containerContacto ">
+                <input class="inputCorreo" type="email" v-model="email" placeholder="Correo electrónico">
+                <br>
+                <input class="inputCorreo" type="text" v-model="asunto" placeholder="Asunto">
+                <br>
+                <textarea class="textArea" v-model="contenido" placeholder="Escribe tu correo" />
+                <br>
+                <button
+                class="bg-[#63A38B] opacity-55 hover:bg-[#63A38B] hover:opacity-100 text-white font-bold py-2 px-4 rounded ml-[95%]">
+
+                Enviar</button>
+                
+            </div>
         </div>
     </div>
 </template>
@@ -210,6 +224,24 @@ html {
 
 .search-box input::placeholder {
     opacity: 0.5;
+}
+.containerContacto {
+    border: 1px solid #63A38B;
+    padding:5rem;
+}
+.inputCorreo {
+    border: 1px solid #63A38B;
+    border-radius: 5%;
+    padding: 5px;
+    margin: 10px;
+    width: 20%;
+}
+.textArea {
+    border: 1px solid #63A38B;
+    width: 100%;
+    height: 10rem;
+    margin: 10px;
+    padding: 5px;
 }
 
 @media(max-width:768px) {

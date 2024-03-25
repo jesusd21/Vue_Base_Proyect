@@ -6,6 +6,7 @@ const paletasReservadas = ref([])
 const colorInput = ref('');
 const showTooltip = ref(false)
 const tooltipPosition = ref({ x: 0, y: 0 })
+const change=ref(1);
 
 onMounted(() => {
   generarPaletaMonocromaticaAleatoria()
@@ -132,7 +133,16 @@ function copyColor(color) {
 }
 function reservar() {
   if( paletasReservadas.value.length===2){
+    debugger;
+    if(change.value===1){
+      paletasReservadas.value[0]=paleta.value
+      change.value++;
     return
+    }else{
+      paletasReservadas.value[1]=paleta.value
+      change.value =1;
+    return
+    }
   }
   paletasReservadas.value.push(paleta.value)
 }
@@ -140,7 +150,7 @@ function reservar() {
 
 <template>
   <div class="h-[100%] mb-16 p-60">
-    <div class="flex justify-center mt-24 text-[#386379] opacity-55 p-[90px] text-[4rem]">
+    <div class="flex justify-center text-[#386379] opacity-55 p-[90px] text-[4rem] font-bold">
       <p>
         Generador de Paletas de Colores
       </p>
