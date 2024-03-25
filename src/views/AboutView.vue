@@ -1,29 +1,12 @@
-<template>
-  <div class="bg-color">
-    <div class="block bottom-0 left-0 w-full p-0 min-h-96 bg-color">
-      <div style="height: 50rem;" class="mt-[-4rem]"></div>
-    </div>
-    <div class="mt-8 flex justify-center">
-      <input v-model="colorInput" type="text" placeholder="#FFFFFF" class="p-2 mr-2 border rounded">
-      <button @click="generarPaletaPersonalizada" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Generar Paleta Personalizada</button>
-    </div>
-    <div class="mt-4 flex justify-center">
-      <button @click="generarPaletaAleatoria" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Generar Paleta Aleatoria</button>
-      <button @click="generarPaletaMonocromaticaAleatoria" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded ml-4">Generar Paleta Monocromática Aleatoria</button>
-    </div>
-    <div class="flex justify-center mt-8">
-      <div v-for="(color, index) in paleta" :key="index" class="w-20 h-20 m-2" 
-      style="color: white; display: flex; justify-content: center; align-items: center;" 
-      :style="{ backgroundColor: color }">{{color}}</div>
-    </div>
-  </div>
-</template>
-
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const paleta = ref([]);
 const colorInput = ref('');
+
+onMounted(()=>{
+  generarPaletaMonocromaticaAleatoria()
+})
 
 const generarColorAleatorio = () => {
   const letras = '0123456789ABCDEF';
@@ -137,9 +120,42 @@ const validarColorHexadecimal = (color) => {
   const regex = /^#[0-9A-F]{6}$/i;
   return regex.test(color);
 };
+
+function copyColor(color) {
+      navigator.clipboard.writeText(color);
+      Vue.prototype.$toast.success('Color copiado al portapapeles');
+    }
 </script>
 
+<template>
+  <div class="h-[70rem]">
+    <div class="flex justify-center mt-24 text-[#386379] opacity-55 p-[90px] text-[4rem]">
+      <p>
+        Generador de Paletas de Colores 
+      </p>
+    </div>
+    <div class=" flex justify-center mt-14">
+      <input v-model="colorInput" type="text" placeholder="#FFFFFF" class="p-2 mr-2 border rounded">
+      <button @click="generarPaletaPersonalizada" class="bg-[#386379] opacity-55 hover:bg-[#386379] hover:opacity-100 text-white font-bold py-2 px-4 rounded">Generar Paleta Personalizada</button>
+    </div>
+    <div class="mt-4 flex justify-center">
+      <button @click="generarPaletaAleatoria" class="bg-[#386379] opacity-55 hover:bg-[#386379] hover:opacity-100 text-white font-bold py-2 px-4 rounded">Generar Paleta Aleatoria</button>
+      <button @click="generarPaletaMonocromaticaAleatoria" class="bg-[#386379] opacity-55 hover:bg-[#386379] hover:opacity-100 text-white font-bold py-2 px-4 rounded ml-4">Generar Paleta Monocromática Aleatoria</button>
+    </div>
+    <div class="flex justify-center mt-8">
+      <div  v-for="(color, index) in paleta" :key="index" class="w-32 h-96 text-white hover:text-black cursor-pointer" 
+      style="display: flex; justify-content: center; align-items: center;" 
+      :style="{ backgroundColor: color }" @click="copyColor(color)">{{color}}</div>
+    </div>
+  </div>
+</template>
+
+
 <style>
+.parentContainer {
+    height: 100vh; /* Adjust to your needs */
+    background-color: #c4c6bf;
+}
 .bg-color {
   background-color: #f3f4f6;
 }

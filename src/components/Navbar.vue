@@ -87,7 +87,7 @@ const toggleMenu = () => {
         </div>
       </div>
     </nav>
-    <div class="w-full relative" :style="{ backgroundColor: color, minHeight: '20rem' }" v-if="color !== '#BDC6AC' && color !== '#5D9DA6'">
+    <div class="w-full relative" :style="{ backgroundColor: color, minHeight: '20rem' }" v-if="color === '#2C3A3D'">
   <video class="w-full h-full -z-0" autoplay loop>
     <source :src="beachVideo" type="video/mp4">
     Tu navegador no soporta el tag de video.

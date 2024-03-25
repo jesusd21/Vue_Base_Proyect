@@ -1,7 +1,5 @@
 <script setup>
 import Card from '@/components/Card.vue';
-import coffeeWindow from '@/assets/images/coffeeWindow.jpg'
-import coffeeMachine from '@/assets/images/coffeeMachine.jpg'
 import noImag from '@/assets/images/noImag.jpg'
 
 
