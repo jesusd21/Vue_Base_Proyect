@@ -17,7 +17,6 @@ const color5 = '#BDC6AC';
 
 watchEffect(() => {
   currentRoute.value = router.currentRoute.value.path;
-  console.log('La ruta ha cambiado:', currentRoute.value);
   if (currentRoute.value === '/') {
       mainColor.value = color1;
       secColor.value = color1;
@@ -45,7 +44,7 @@ watchEffect(() => {
     <router-view  style="margin-top: 4rem" ></router-view>
     <!-- Pie de página común para todas las páginas -->
     <Footer :color=mainColor />
-
+    <!-- <Footer_1 :color=mainColor /> -->
   </div>
 </template>
 <style scoped>
