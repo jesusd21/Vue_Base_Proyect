@@ -6,7 +6,7 @@ const paletasReservadas = ref([])
 const colorInput = ref('');
 const showTooltip = ref(false)
 const tooltipPosition = ref({ x: 0, y: 0 })
-const change=ref(1);
+const change = ref(1);
 
 onMounted(() => {
   generarPaletaMonocromaticaAleatoria()
@@ -132,16 +132,16 @@ function copyColor(color) {
   Vue.prototype.$toast.success('Color copiado al portapapeles');
 }
 function reservar() {
-  if( paletasReservadas.value.length===2){
+  if (paletasReservadas.value.length === 2) {
     debugger;
-    if(change.value===1){
-      paletasReservadas.value[0]=paleta.value
+    if (change.value === 1) {
+      paletasReservadas.value[0] = paleta.value
       change.value++;
-    return
-    }else{
-      paletasReservadas.value[1]=paleta.value
-      change.value =1;
-    return
+      return
+    } else {
+      paletasReservadas.value[1] = paleta.value
+      change.value = 1;
+      return
     }
   }
   paletasReservadas.value.push(paleta.value)
@@ -183,30 +183,26 @@ function reservar() {
           :style="{ top: tooltipPosition.y + 'px', left: tooltipPosition.x + 'px' }">Copy</div>
       </div>
     </div>
-    <h2 class="text-[#386379] opacity-55 text-2xl font-bold mb-4 mt-24 flex justify-center" v-if="paletasReservadas.length > 0">Paletas Reservadas</h2>
+    <h2 class="text-[#386379] opacity-55 text-2xl font-bold mb-4 mt-24 flex justify-center"
+      v-if="paletasReservadas.length > 0">Paletas Reservadas</h2>
+
     <div class="flex justify-center mt-8" v-if="paletasReservadas.length > 0">
- 
-  <template v-for="(palet, paletIndex) in paletasReservadas" :key="paletIndex">
-    <div class="flex w-1/2 mb-8 ml-10">
-      <template v-for="(color, colorIndex) in palet" :key="colorIndex">
-        <div @mouseenter="showTooltip = true" @mouseleave="showTooltip = false"
-          @mousemove="updateTooltipPosition($event)" 
-          class="color-box w-32 h-96  text-white hover:text-black cursor-pointer flex-nowrap"
-          style="display: flex; justify-content: center; align-items: center;" 
-          :style="{ backgroundColor: color }"
-          @click="copyColor(color)">
-          {{ color }}
-          <div class="tooltip" v-if="showTooltip"
-            :style="{ top: tooltipPosition.y + 'px', left: tooltipPosition.x + 'px' }">Copy</div>
+      <template v-for="(palet, paletIndex) in paletasReservadas" :key="paletIndex">
+        <div class="flex w-1/2 mb-8 ml-10">
+          <template v-for="(color, colorIndex) in palet" :key="colorIndex">
+            <div @mouseenter="showTooltip = true" @mouseleave="showTooltip = false"
+              @mousemove="updateTooltipPosition($event)"
+              class="color-box w-32 h-96  text-white hover:text-black cursor-pointer flex-nowrap"
+              style="display: flex; justify-content: center; align-items: center;" :style="{ backgroundColor: color }"
+              @click="copyColor(color)">
+              {{ color }}
+              <div class="tooltip" v-if="showTooltip"
+                :style="{ top: tooltipPosition.y + 'px', left: tooltipPosition.x + 'px' }">Copy</div>
+            </div>
+          </template>
         </div>
       </template>
     </div>
-
-  </template>
-</div>
-
-
-
 
   </div>
 </template>
