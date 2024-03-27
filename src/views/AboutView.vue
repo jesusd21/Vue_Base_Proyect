@@ -1,5 +1,6 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
+import Calendar from '@/components/Calendar.vue'
 
 const paleta = ref([]);
 const paletasReservadas = ref([])
@@ -7,6 +8,7 @@ const colorInput = ref('');
 const showTooltip = ref(false)
 const tooltipPosition = ref({ x: 0, y: 0 })
 const change = ref(1);
+
 
 onMounted(() => {
   generarPaletaMonocromaticaAleatoria()
@@ -149,6 +151,9 @@ function reservar() {
 </script>
 
 <template>
+
+
+  <Calendar/>
   <div class="h-[100%] mb-16 p-60">
     <div class="flex justify-center text-[#386379] opacity-55 p-[90px] text-[4rem] font-bold">
       <p>
@@ -242,4 +247,6 @@ function reservar() {
 .color-box:hover .tooltip {
   display: block;
 }
+  
+
 </style>
