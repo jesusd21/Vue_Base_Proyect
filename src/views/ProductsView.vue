@@ -3,6 +3,7 @@ import noImag from '@/assets/images/noImag.jpg'
 import { ref } from 'vue';
 
 const fileName = ref('')
+const imgSeleccionada= ref(null)
 function onFileSelected(event) {
     debugger;
     const file = event.target.files[0];
@@ -21,6 +22,23 @@ function onFileSelected(event) {
     //             //todo mal :P
     //         })
 }
+function seleccionarImagen(evento) {
+    debugger;
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'image/*'; // Acepta solo archivos de imagen
+        input.onchange = (e) => {
+            const archivo = e.target.files[0];
+            if (archivo) {
+                const lector = new FileReader();
+                lector.readAsDataURL(archivo);
+                lector.onload = (readerEvent) => {
+                    imgSeleccionada.value= readerEvent.target.result;
+                };
+            }
+        };
+        input.click(); // Simula un clic en el input de tipo file
+    }
 </script>
 
 <template>
@@ -35,8 +53,12 @@ function onFileSelected(event) {
             </div>
 
             <div class="flex flex-wrap justify-between ">
+                <!-- <div class="sm:ml-[-5rem] md:w-1/2 lg:w-5/12">
+                    <img  :src="noImag"  alt="iconoImg" loading="lazy" class="img_perfil" />
+                </div> -->
+
                 <div class="sm:ml-[-5rem] md:w-1/2 lg:w-5/12">
-                    <img :src="noImag" alt="iconoImg" loading="lazy" class="img_perfil" />
+                    <img :src="imgSeleccionada || noImag" alt="iconoImg" loading="lazy" class="img_perfil" @click="seleccionarImagen"/>
                 </div>
 
                 <div class="w-full md:w-1/2 lg:w-5/12">
@@ -148,7 +170,12 @@ function onFileSelected(event) {
 <style scoped>
 .img_perfil {
     border-radius: 50%;
-    width: 20rem;
+    margin-left: 30%;
+    border-radius: 50%;
+    max-width: 20rem;
+    max-height: 20rem;
+    min-width: 20rem;
+    min-height: 20rem; /* Establece la misma altura máxima que el ancho máximo */
     margin-left: 30%;
 }
 
