@@ -1,12 +1,12 @@
 <script setup>
 import loginIcon from '@/assets/images/loginIcon.png'
-
+import colors from '@/assets/colors';
 
 </script>
 
 <template>
-    <div class="parentContainer ">
-            <div class="containerMain border-2 rounded-full size-96">
+    <div class="parentContainer" >
+            <div :style="{ backgroundColor: colors.login }" class="containerMain border-2 rounded-full size-96">
                 <img :src="loginIcon" alt="Card Image" class="w-50 h-60 object-cover">
                 <div class="flex flex-col space-y-4  ">
                     <input type="text" v-model="email" placeholder="Email" class="inputForm" />
@@ -39,7 +39,6 @@ import loginIcon from '@/assets/images/loginIcon.png'
 .containerMain {
     width: 30rem;
     height: 40rem;
-    background-color: #BDC6AC;
     display: flex;
     flex-direction: column; /* Adjust if necessary */
     justify-content: center;

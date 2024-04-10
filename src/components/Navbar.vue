@@ -3,7 +3,7 @@ import { ref, onMounted, onBeforeUnmount, defineProps } from 'vue';
 import { useRouter } from 'vue-router';
 import tinycolor from 'tinycolor2';
 import beachVideo from '@/assets/videos/beachVideo.mp4'
-
+import colors from '@/assets/colors';
 const router = useRouter();
 const isSticky = ref(false);
 const isScrolled = ref(false);
@@ -44,7 +44,7 @@ onBeforeUnmount(() => {
 const navigateTo = (path) => {
   router.push(path).then(() => {
     // Después de la redirección, lleva la página al inicio (top)
-    window.scrollTo(0, 0);
+    router.scrollTo(0, 0);
   });
   menuVisible.value = false;
 };
@@ -55,7 +55,7 @@ const toggleMenu = () => {
 
 <template>
   <div>
-    <nav :style="{ backgroundColor: isSticky ? color : color === '#2C3A3D' ? 'transparent' : color, color: 'black' }"
+    <nav :style="{ backgroundColor: isSticky ? color : color === colors.home ? 'transparent' : color, color: 'black' }"
       :class="{ 'sticky': isSticky, 'scrolled': isScrolled }">
       <div>
         <div class="links lg:block hidden">
@@ -87,7 +87,7 @@ const toggleMenu = () => {
         </div>
       </div>
     </nav>
-    <div class="w-full relative" :style="{ backgroundColor: color, minHeight: '20rem' }" v-if="color === '#2C3A3D'">
+    <div class="w-full relative" :style="{ backgroundColor: color, minHeight: '20rem' }" v-if="color === colors.home">
   <video class="w-full h-full -z-0" autoplay loop>
     <source :src="beachVideo" type="video/mp4">
     Tu navegador no soporta el tag de video.
