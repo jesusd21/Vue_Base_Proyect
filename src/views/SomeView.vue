@@ -9,10 +9,8 @@ import PaletaColors from '@/components/PaletaColors.vue'
 </script>
 
 <template>
-
-  <Carousel class="mt-[5%]"/>
-  <Calendar/>
   <PaletaColors/>
+  <Calendar/>
 </template>
 
 

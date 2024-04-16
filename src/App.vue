@@ -17,13 +17,13 @@ watchEffect(() => {
   if (currentRoute.value === '/') {
       mainColor.value = colors.home;
       secColor.value = colors.home;
-    } else if (currentRoute.value === '/about') {
+    } else if (currentRoute.value === '/some') {
       mainColor.value = colors.about;
       secColor.value = colors.about;
-    } else if (currentRoute.value === '/events') {
+    } else if (currentRoute.value === '/components') {
       mainColor.value = colors.events;
       secColor.value = colors.events;
-    } else if (currentRoute.value === '/products') {
+    } else if (currentRoute.value === '/testing') {
       mainColor.value = colors.products;
       secColor.value = colors.products;
     } else if (currentRoute.value === '/login') {

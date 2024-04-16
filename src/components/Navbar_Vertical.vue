@@ -15,9 +15,9 @@ export default {
     return {
       navItems: [
         { text: 'Home', link: '/' },
-        { text: 'about', link: '/about' },
-        { text: 'events', link: '/events' },
-        { text: 'products', link: '/products' },
+        { text: 'some', link: '/some' },
+        { text: 'components', link: '/components' },
+        { text: 'testing', link: '/testing' },
         { text: 'login', link: '/login' },
       ]
     };

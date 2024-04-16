@@ -11,6 +11,7 @@ const menuVisible = ref(false);
 
 const { color } = defineProps(['color']);
 const colorSec = ref(color);
+const videoPlay = ref('');
 function degradeColor() {
 
   const baseColor = tinycolor(colorSec.value);
@@ -34,7 +35,9 @@ const handleScroll = () => {
 };
 
 onMounted(() => {
+  videoPlay.value.play();
   window.addEventListener('scroll', handleScroll);
+  
 });
 
 onBeforeUnmount(() => {
@@ -61,9 +64,9 @@ const toggleMenu = () => {
         <div class="links lg:block hidden">
           <ul class="menu flex items-center justify-center">
             <li><a @click.prevent="navigateTo('/')" class="link ">Home</a></li>
-            <li><a @click.prevent="navigateTo('/about')" class="link ">About</a></li>
-            <li><a @click.prevent="navigateTo('/events')" class="link ">Events</a></li>
-            <li><a @click.prevent="navigateTo('/products')" class="link ">Products</a></li>
+            <li><a @click.prevent="navigateTo('/some')" class="link ">Some</a></li>
+            <li><a @click.prevent="navigateTo('/components')" class="link ">Components</a></li>
+            <li><a @click.prevent="navigateTo('/testing')" class="link ">Testing</a></li>
             <li><a @click.prevent="navigateTo('/login')" class="link ">LogIn</a>
             </li>
 
@@ -77,9 +80,9 @@ const toggleMenu = () => {
           <ul class="mobile-links mt-[-2rem] w-full absolute z-50 left-0 text-center" :style="{ backgroundColor: color }"
             :class="{ hidden: !menuVisible }">
             <li><a @click.prevent="navigateTo('/')" class="link ">Home</a></li>
-            <li><a @click.prevent="navigateTo('/about')" class="link">About</a></li>
-            <li><a @click.prevent="navigateTo('/events')" class="link">Events</a></li>
-            <li><a @click.prevent="navigateTo('/products')" class="link">Products</a></li>
+            <li><a @click.prevent="navigateTo('/some')" class="link">Some</a></li>
+            <li><a @click.prevent="navigateTo('/components')" class="link">Components</a></li>
+            <li><a @click.prevent="navigateTo('/testing')" class="link">Testing</a></li>
             <li><a @click.prevent="navigateTo('/login')"
                 class="border-4 border-gray-600 bg-gray-600 text-white font-bold p-2 rounded-full hover:bg-gray-700 hover:border-gray-700 transition duration-500 ">LogIn</a>
             </li>
@@ -88,14 +91,17 @@ const toggleMenu = () => {
       </div>
     </nav>
     <div class="w-full relative" :style="{ backgroundColor: color, minHeight: '20rem' }" v-if="color === colors.home">
-  <video class="w-full h-full -z-0" autoplay loop>
+  <video ref="videoPlay" class="w-full h-full -z-0" autoplay loop>
     <source :src="beachVideo" type="video/mp4">
     Tu navegador no soporta el tag de video.
   </video>
   <!-- Capa transparente -->
   <div class="absolute top-0 left-0 w-full h-full bg-[#2C3A3D] bg-opacity-70 z-1"></div>
   <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-2">
-    <input class="rounded w-[50rem] h-16 border p-1 text-center font-bold"  type="text" placeholder="Barra de búsqueda" />
+    <!-- <input class="rounded w-[50rem] h-16 border p-1 text-center font-bold"  type="text" placeholder="Barra de búsqueda" /> -->
+    <div style="{{ color: '#FFF'; }}">
+    <p  class="text-9xl font-bold text-[#d3d3d3]">Welcome</p>
+  </div>
   </div>
 </div>
 
@@ -173,4 +179,8 @@ nav {
   margin-left: 1rem;
   /* Espacio entre elementos */
 
-}</style>
+}
+.homeText{
+  color: '#FFF';
+}
+</style>

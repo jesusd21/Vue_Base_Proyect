@@ -91,8 +91,8 @@ const selectDate = (day) => {
     title: 'Agregar Evento',
     html:
       `<input id="swal-timepicker" class="swal2-input" placeholder="Hora del día" type="time" value="${currentTime}">` +
-      `<input id="swal-description" class="swal2-input" placeholder="Descripción" type="text">` +
-      `<input id="swal-location" class="swal2-input" placeholder="Lugar" type="text">`,
+      `<input id="swal-description" class="swal2-input" placeholder="Descripción" type="text" autocomplete="off">` +
+      `<input id="swal-location" class="swal2-input" placeholder="Lugar" type="text" autocomplete="off">`,
     showCancelButton: true,
     confirmButtonText: 'Agregar',
     cancelButtonText: 'Cancelar',
@@ -109,7 +109,6 @@ const selectDate = (day) => {
 };
 
 function deleteEvent(index) {
-  console.log(index);
   events.value.splice(index, 1);
 }
 const getDayClasses = (day) => {
